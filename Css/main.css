@@ -1,0 +1,44 @@
+body{
+    padding: 0;
+    margin: 0;
+
+}
+
+.giant{
+    position: absolute;
+    opacity: 0.1;
+    left:50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+nav{
+    width: 50%;
+    position: relative;
+    left: 50%;
+    top: 3;
+    transform: translate(-50%,-3%);
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    width: 100%;
+    height: 5%;
+    align-content: space-between;
+    align-items: center;
+}
+
+nav ul li{
+    width: 33.33%;
+    text-align: center;
+    font-size: 1.5em;
+    font-family: 'Kanit', sans-serif;
+}
+nav ul li a{
+    color:  #000!important;   
+    text-decoration: none;
+
+}nav ul li a:hover{
+    text-decoration: none;
+}
+

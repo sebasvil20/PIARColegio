@@ -1,0 +1,55 @@
+.bg{
+    position: absolute;
+    top:-10%;
+    left: -10%;
+    width: 120%;
+    height: 140vh;
+    z-index: -4;
+}
+
+body{
+    overflow: hidden;
+}
+
+
+.bigBlackContainer{
+    width: 100%;
+    background-image: url(../img/blackxd.png);
+    background-position: center;
+    background-origin: content-box;
+    z-index: 3;
+    position: relative;
+    margin-top: 20%;
+}
+
+
+.Input{
+    background: none;
+    border: none; 
+    border-bottom: 1px solid white;
+    width: 70%;
+}
+
+.loginText{
+    font-size: 1.5em;
+    color:#007bff;
+}
+
+
+.Login{
+    background-position: center;
+    background-origin: content-box;
+}
+
+
+.logo{
+    width: 30%;
+}
+
+h1,h2,h3{
+    color:white;
+}
+
+.botonsito{
+    background: #48e5c2!important;
+}
