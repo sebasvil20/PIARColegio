@@ -16,6 +16,13 @@ else{
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="Css/mainPageStyles.css">
     <link rel="stylesheet" href="Css/loadingPageStyles.css">
+    <link href="https://cdn.anychart.com/releases/builtin-generator/css/anychart-ui.min.css?hcode=c11e6e3cfefb406e8ce8d99fa8368d33" type="text/css" rel="stylesheet">
+    <link href="https://cdn.anychart.com/releases/builtin-generator/fonts/css/anychart-font.min.css?hcode=c11e6e3cfefb406e8ce8d99fa8368d33" type="text/css" rel="stylesheet">
+    <script src="Js/loadingPage.js"></script>
+    <script src="https://cdn.anychart.com/releases/builtin-generator/js/anychart-base.min.js?hcode=c11e6e3cfefb406e8ce8d99fa8368d33"></script>
+    <script src="https://cdn.anychart.com/releases/builtin-generator/js/anychart-ui.min.js?hcode=c11e6e3cfefb406e8ce8d99fa8368d33"></script>
+    <script src="https://cdn.anychart.com/releases/builtin-generator/js/anychart-exports.min.js?hcode=c11e6e3cfefb406e8ce8d99fa8368d33"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-base.min.js" type="text/javascript"></script>
     <title>PIAR - Inicio</title>
 </head>
 <script src="https://kit.fontawesome.com/6e9c638913.js"></script>
@@ -102,7 +109,7 @@ else{
     <hr class="m-0">
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center text-center" id="consultarRegistro">
         <div class="w-100 pl-2">
-            <form action="mainApp/read.php" method="get">
+            <form action="mainApp/read.php" method="POST">
             <h2 class="mb-3 pb-3">Consulta de registros</h2>
             <section class="row">
                 <section class="col-3 pt-1 ">Identificacion</section>
@@ -152,8 +159,7 @@ else{
 </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="Js/loadingPage.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

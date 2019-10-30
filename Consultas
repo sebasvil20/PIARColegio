@@ -1,0 +1,94 @@
+
+
+//Consulta para traer el resultado de la evaluacion de los aprendizajes de algun estudiante
+
+SELECT testudiante.IdIdentificacionEst,testudiante.NombreEst,tdetallehistlapren.Valoracion,taprendizajes.NombreAprendizaje,titemscategorias.nombreItemCategoria
+FROM testudiante
+INNER JOIN thistorialestud
+ON
+testudiante.IdIdentificacionEst=thistorialestud.IdIdentificacionEst
+INNER JOIN tdetallehistlapren
+ON
+tdetallehistlapren.idHistoria=thistorialestud.IdHistorial
+INNER JOIN titemscategorias
+ON
+titemscategorias.idItemCategorias=tdetallehistlapren.idItemcat
+INNER JOIN tcategorias
+ON
+tcategorias.idCategoria=titemscategorias.idCategoria
+INNER JOIN taprendizajes
+ON
+taprendizajes.idAprendizaje=tcategorias.idAprendizaje
+WHERE testudiante.IdIdentificacionEst='$idAlumno'
+ORDER BY taprendizajes.NombreAprendizaje
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Contar la cantidad de Si que tiene un estudiante en su evaluacion
+
+SELECT COUNT(tdetallehistlapren.Valoracion)
+FROM testudiante
+INNER JOIN thistorialestud
+ON
+testudiante.IdIdentificacionEst=thistorialestud.IdIdentificacionEst
+INNER JOIN tdetallehistlapren
+ON
+tdetallehistlapren.idHistoria=thistorialestud.IdHistorial
+INNER JOIN titemscategorias
+ON
+titemscategorias.idItemCategorias=tdetallehistlapren.idItemcat
+INNER JOIN tcategorias
+ON
+tcategorias.idCategoria=titemscategorias.idCategoria
+INNER JOIN taprendizajes
+ON
+taprendizajes.idAprendizaje=tcategorias.idAprendizaje
+WHERE testudiante.IdIdentificacionEst='37277849' && tdetallehistlapren.Valoracion='Si'
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Contar la cantidad de No que tiene un estudiante en su evaluacion
+
+SELECT COUNT(tdetallehistlapren.Valoracion)
+FROM testudiante
+INNER JOIN thistorialestud
+ON
+testudiante.IdIdentificacionEst=thistorialestud.IdIdentificacionEst
+INNER JOIN tdetallehistlapren
+ON
+tdetallehistlapren.idHistoria=thistorialestud.IdHistorial
+INNER JOIN titemscategorias
+ON
+titemscategorias.idItemCategorias=tdetallehistlapren.idItemcat
+INNER JOIN tcategorias
+ON
+tcategorias.idCategoria=titemscategorias.idCategoria
+INNER JOIN taprendizajes
+ON
+taprendizajes.idAprendizaje=tcategorias.idAprendizaje
+WHERE testudiante.IdIdentificacionEst='37277849' && tdetallehistlapren.Valoracion='No'
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Contar la cantidad de Si/No de la evaluacion de un estudiante por categorias
+
+SELECT COUNT(tdetallehistlapren.Valoracion),testudiante.NombreEst,taprendizajes.NombreAprendizaje
+FROM testudiante
+INNER JOIN thistorialestud
+ON
+testudiante.IdIdentificacionEst=thistorialestud.IdIdentificacionEst
+INNER JOIN tdetallehistlapren
+ON
+tdetallehistlapren.idHistoria=thistorialestud.IdHistorial
+INNER JOIN titemscategorias
+ON
+titemscategorias.idItemCategorias=tdetallehistlapren.idItemcat
+INNER JOIN tcategorias
+ON
+tcategorias.idCategoria=titemscategorias.idCategoria
+INNER JOIN taprendizajes
+ON
+taprendizajes.idAprendizaje=tcategorias.idAprendizaje
+WHERE testudiante.IdIdentificacionEst='37277849' && tdetallehistlapren.Valoracion='No' GROUP BY taprendizajes.NombreAprendizaje
+
+
