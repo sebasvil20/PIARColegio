@@ -120,6 +120,8 @@ WHERE testudiante.IdIdentificacionEst='$idAlumno' && tdetallehistlapren.Valoraci
 ?>
 
 <script>
+    //Se obtienen los datos de lo impreso por el php, se sacan directamente del html
+
     var array1 = [];
     for(let i=0;i<document.getElementsByClassName('resultados').length;i++){
         array1[i] =  document.getElementsByClassName('resultados')[i].innerText;
