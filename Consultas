@@ -116,22 +116,22 @@
 
         //Contar la cantidad de '0' obtenidos dentro de la calificacion de habilidades en alumnos
         SELECT
-        testudiante.NombreEst,COUNT(tdetallehabilidad.Valoracion),thabilidades.NombreHabilidad
-        FROM testudiante
-        INNER JOIN thistorialestud
-        ON
-        testudiante.IdIdentificacionEst=thistorialestud.IdIdentificacionEst
-        INNER JOIN tdetallehabilidad
-        ON
-        thistorialestud.IdHistorial=tdetallehabilidad.idHistorial
-        INNER JOIN tdescriptores
-        ON
-        tdetallehabilidad.idDescriptor=tdescriptores.idDescriptor
-        INNER JOIN thabilidades
-        ON
-        tdescriptores.idHabilidad=thabilidades.idHabilidad
-        WHERE testudiante.IdIdentificacionEst='37277849' && tdetallehabilidad.Valoracion='0'
-        GROUP BY thabilidades.NombreHabilidad
+                tdetallehabilidad.Valoracion,COUNT(tdetallehabilidad.Valoracion),thabilidades.NombreHabilidad,testudiante.NombreEst
+                FROM testudiante
+                INNER JOIN thistorialestud
+                ON
+                testudiante.IdIdentificacionEst=thistorialestud.IdIdentificacionEst
+                INNER JOIN tdetallehabilidad
+                ON
+                thistorialestud.IdHistorial=tdetallehabilidad.idHistorial
+                INNER JOIN tdescriptores
+                ON
+                tdetallehabilidad.idDescriptor=tdescriptores.idDescriptor
+                INNER JOIN thabilidades
+                ON
+                tdescriptores.idHabilidad=thabilidades.idHabilidad
+                WHERE testudiante.IdIdentificacionEst='37277849' && tdetallehabilidad.Valoracion='0'
+                GROUP BY thabilidades.NombreHabilidad
 
         ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -195,3 +195,7 @@
         tdescriptores.idHabilidad=thabilidades.idHabilidad
         WHERE testudiante.IdIdentificacionEst='37277849' && tdetallehabilidad.Valoracion='3'
         GROUP BY thabilidades.NombreHabilidad
+
+
+
+
