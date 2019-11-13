@@ -52,7 +52,7 @@ else{
             </ul>
         </section>
     </section>
-    <form action="../mainApp/enviarDatos.php" method="POST">
+    <form action="../mainApp/sendData/SDatencion.php" method="POST">
     <section class="row border-bottom mt-4 mb-2">
         <ul class="menuInterno mb-4 pb-2 pt-2 d-flex">
             <li><i class="far fa-save mr-2"></i><input type="submit" value="Guardar" style="border:none;"></li>

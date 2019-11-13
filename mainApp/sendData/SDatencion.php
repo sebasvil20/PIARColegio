@@ -1,5 +1,5 @@
 <?php
-include("conexion.php");
+include("../conexion.php");
 
 $idEstudiante = $_POST['idEstudiante1'];
 $idEvaluador= $_POST['idEvualuador1'];
@@ -19,6 +19,11 @@ $dato10 = $_POST['atenItem10'];
 $dato11= $_POST['atenItem11'];
 $dato12 = $_POST['atenItem12'];
 
+//Se define el array con los datos para despues acceder a ellos mas facilmente
+$dataSet = array($dato1,$dato2,$dato3,$dato4,$dato5,$dato6,$dato7,$dato8,$dato9,$dato10,$dato11,$dato12);
+
+
+//Se consulta si el registro del historial ya existe, y dependiendo si la respuesta es falsa o no, se crea uno nuevo o no, despues se ingresan los datos a la db
 $consulta="select IdHistorial from thistorialestud where IdIdentificacionEst='$idEstudiante'";
 $resultado=mysqli_query($mysqli,$consulta) or die (mysqli_error());
 if (mysqli_num_rows($resultado)>0)
@@ -27,7 +32,17 @@ if (mysqli_num_rows($resultado)>0)
     while($row=mysqli_fetch_array($resultado)){
         $IdHistorial=$row[0];
     }
-
+    $j = 38;
+    for ($i = 0;$i<count($dataSet);$i++){
+        if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`) VALUES ('',$IdHistorial,'$j','$dataSet[$i]')")){
+            echo "Dato ingresado correctamente";
+            $j++;
+        }
+        else{
+            echo "Error, no se ha podido ingresar el dato","<br>";
+            echo $mysqli->error;
+        }
+    }
 }
 else {
     echo "No  registro de este estudiante, se creara uno","<br>";
@@ -39,14 +54,23 @@ else {
     $maxHistorial[0]=(int)$maxHistorial[0]+1;
     echo "Id del historial: ",$maxHistorial,"<br>";
     if($mysqli->query("INSERT INTO `thistorialestud`(`IdHistorial`, `IdIdentificacionEst`, `IdIdentificacionProf`, `FechaHistoria`) VALUES ('$maxHistorial','$idEstudiante','$idEvaluador','$Fecha')")){
-        echo "chido";
+        $j = 38;
+        for ($i = 1;$i<=count($dataSet);$i++){
+            if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`) VALUES ('',$maxHistorial,'$j','$dataSet[$i]')")){
+                echo "Dato ingresado correctamente";
+                $j++;
+            }
+            else{
+                echo "Error, no se ha podido ingresar el dato","<br>";
+                echo $mysqli->error;
+            }
+        }
     }
     else{
         echo "Error, puede deberse a que el estudiante no esta registrado en la base de datos o el evaluador no esta registrado en la base de datos.","<br>";
         echo $mysqli->error;
     }
 }
-
 ?>
 
 

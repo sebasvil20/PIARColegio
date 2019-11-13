@@ -52,15 +52,43 @@ else{
             </ul>
         </section>
     </section>
+    <form action="../mainApp/sendData/SDmotivacion.php" method="post"">
     <section class="row border-bottom  mt-4">
         <ul class="menuInterno mb-4 pb-2 pt-2">
-            <li><i class="far fa-save mr-2"></i>Guardar</li>
+            <li><i class="far fa-save mr-2"></i><input type="submit" value="Guardar" style="border:none;"></li>
             <li><i class="far fa-sticky-note mr-2"></i>Limpiar</li>
             <li><a href="../Inicio.php"><i class="fas fa-backward mr-2"></i>Regresar al inicio</a></li>
         </ul>
     </section>
+    <section>
+        <div class="form-group">
+            <section class="row">
+                <section class="col-3">
+                    <label for="IdentificacionEstudiante">Identificacion del estudiante</label>
+                </section>
+                <section class="col-9">
+                    <input type="text" class="form-control" id="idEstudiante1" name="idEstudiante1" placeholder="Ingrese la identificacion del estudiante">
+                </section>
+            </section>
+            <section class="row">
+                <section class="col-3">
+                    <label for="IdentificacionEvaluador">Identificacion del evaluador</label>
+                </section>
+                <section class="col-9">
+                    <input type="text" class="form-control" id="idEvualuador1" name="idEvualuador1" placeholder="Ingrese la identificacion del evaluador (Profesor-Psicologa)">
+                </section>
+            </section>
+            <section class="row">
+                <section class="col-3">
+                    <label for="Fecha1">fecha</label>
+                </section>
+                <section class="col-9">
+                    <input type="date" class="form-control" id="Fecha1" name="Fecha1">
+                </section>
+            </section>
+        </div>
+    </section>
     <div class="form-group text-left">
-        <form action="" class="pt-1">
             <section class="row text-center mt-5 border border-dark">
                 <section class="col-2 border border-dark">Categoria</section>
                 <section class="col-1 border border-dark">N°</section>
@@ -82,7 +110,7 @@ else{
                 <section class="col-2">
                     <section class="row">
                         <section class="col">
-                            <select id="motiItem1"  class="form-control">
+                            <select id="motiItem1" name="motiItem1"  class="form-control">
                                 <option selected>Seleccione...</option>
                                 <option>...</option>
                                 <option>Si</option>
@@ -108,7 +136,7 @@ else{
                 <section class="col-2">
                     <section class="row">
                         <section class="col">
-                            <select id="motiItem2"  class="form-control">
+                            <select id="motiItem2" name="motiItem2"   class="form-control">
                                 <option selected>Seleccione...</option>
                                 <option>...</option>
                                 <option>Si</option>
@@ -134,7 +162,7 @@ else{
                 <section class="col-2">
                     <section class="row">
                         <section class="col">
-                            <select id="motiItem3"  class="form-control">
+                            <select id="motiItem3"  name="motiItem3"  class="form-control">
                                 <option selected>Seleccione...</option>
                                 <option>...</option>
                                 <option>Si</option>
@@ -160,7 +188,7 @@ else{
                 <section class="col-2">
                     <section class="row">
                         <section class="col">
-                            <select id="motiItem4"  class="form-control">
+                            <select id="motiItem4"  name="motiItem4"  class="form-control">
                                 <option selected>Seleccione...</option>
                                 <option>...</option>
                                 <option>Si</option>
@@ -186,7 +214,7 @@ else{
                 <section class="col-2">
                     <section class="row">
                         <section class="col">
-                            <select id="motiItem5"   class="form-control">
+                            <select id="motiItem5"  name="motiItem5"   class="form-control">
                                 <option selected>Seleccione...</option>
                                 <option>...</option>
                                 <option>Si</option>
@@ -212,7 +240,7 @@ else{
                 <section class="col-2">
                     <section class="row">
                         <section class="col">
-                            <select id="motiItem6" class="form-control">
+                            <select id="motiItem6" name="motiItem6"  class="form-control">
                                 <option selected>Seleccione...</option>
                                 <option>...</option>
                                 <option>Si</option>
@@ -238,7 +266,7 @@ else{
                 <section class="col-2">
                     <section class="row">
                         <section class="col">
-                            <select id="motiItem7"  class="form-control">
+                            <select id="motiItem7" name="motiItem7"   class="form-control">
                                 <option selected>Seleccione...</option>
                                 <option>...</option>
                                 <option>Si</option>
@@ -264,7 +292,7 @@ else{
                 <section class="col-2">
                     <section class="row">
                         <section class="col">
-                            <select id="motiItem8"  class="form-control">
+                            <select id="motiItem8" name="motiItem8"   class="form-control">
                                 <option selected>Seleccione...</option>
                                 <option>...</option>
                                 <option>Si</option>
@@ -290,7 +318,7 @@ else{
                 <section class="col-2">
                     <section class="row">
                         <section class="col">
-                            <select id="motiItem9"  class="form-control">
+                            <select id="motiItem9" name="motiItem9"   class="form-control">
                                 <option selected>Seleccione...</option>
                                 <option>...</option>
                                 <option>Si</option>
@@ -316,7 +344,7 @@ else{
                 <section class="col-2">
                     <section class="row">
                         <section class="col">
-                            <select id="motiItem10" class="form-control">
+                            <select id="motiItem10" name="motiItem10"  class="form-control">
                                 <option selected>Seleccione...</option>
                                 <option>...</option>
                                 <option>Si</option>
@@ -342,7 +370,7 @@ else{
                 <section class="col-2">
                     <section class="row">
                         <section class="col">
-                            <select id="motiItem11" class="form-control">
+                            <select id="motiItem11" name="motiItem11"  class="form-control">
                                 <option selected>Seleccione...</option>
                                 <option>...</option>
                                 <option>Si</option>
@@ -368,7 +396,7 @@ else{
                 <section class="col-2">
                     <section class="row">
                         <section class="col">
-                            <select id="motiItem12" class="form-control">
+                            <select id="motiItem12" name="motiItem12"  class="form-control">
                                 <option selected>Seleccione...</option>
                                 <option>...</option>
                                 <option>Si</option>
