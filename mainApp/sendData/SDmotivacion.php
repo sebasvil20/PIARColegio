@@ -34,10 +34,6 @@ if (mysqli_num_rows($resultado)>0)
     }
     $j = 25;
     for ($i = 0;$i<count($dataSet);$i++){
-        if($j=29){
-            $j++;
-        }
-
         if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`) VALUES ('','$IdHistorial','$j','$dataSet[$i]')")){
             echo "Dato ingresado correctamente";
             $j++;
@@ -45,6 +41,12 @@ if (mysqli_num_rows($resultado)>0)
         else{
             echo "Error, no se ha podido ingresar el dato","<br>";
             echo $mysqli->error,"<br>";
+            if($j==29){
+                if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`) VALUES ('','$IdHistorial','30','$dataSet[$i]')")){
+                    echo "Dato ingresado correctamente";
+                    $j=31;
+                }
+            }
         }
     }
 }
@@ -59,14 +61,20 @@ else {
     echo "Id del historial: ",$maxHistorial,"<br>";
     if($mysqli->query("INSERT INTO `thistorialestud`(`IdHistorial`, `IdIdentificacionEst`, `IdIdentificacionProf`, `FechaHistoria`) VALUES ('$maxHistorial','$idEstudiante','$idEvaluador','$Fecha')")){
         $j = 25;
-        for ($i = 1;$i<=count($dataSet);$i++){
+        for ($i = 0;$i<count($dataSet);$i++){
             if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`) VALUES ('','$maxHistorial','$j','$dataSet[$i]')")){
                 echo "Dato ingresado correctamente";
                 $j++;
             }
             else{
                 echo "Error, no se ha podido ingresar el dato","<br>";
-                echo $mysqli->error;
+                echo $mysqli->error,"<br>";
+                if($j==29){
+                    if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`) VALUES ('','$maxHistorial','30','$dataSet[$i]')")){
+                        echo "Dato ingresado correctamente";
+                        $j=31;
+                    }
+                }
             }
         }
     }
