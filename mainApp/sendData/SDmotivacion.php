@@ -39,13 +39,19 @@ if (mysqli_num_rows($resultado)>0)
             $j++;
         }
         else{
-            echo "Error, no se ha podido ingresar el dato","<br>";
-            echo $mysqli->error,"<br>";
             if($j==29){
                 if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`) VALUES ('','$IdHistorial','30','$dataSet[$i]')")){
                     echo "Dato ingresado correctamente";
                     $j=31;
                 }
+                else{
+                    echo "Error, no se ha podido ingresar el dato","<br>";
+                    echo $mysqli->error,"<br>";
+                }
+            }
+            else{
+                echo "Error, no se ha podido ingresar el dato","<br>";
+                echo $mysqli->error,"<br>";
             }
         }
     }
@@ -67,13 +73,19 @@ else {
                 $j++;
             }
             else{
-                echo "Error, no se ha podido ingresar el dato","<br>";
-                echo $mysqli->error,"<br>";
                 if($j==29){
                     if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`) VALUES ('','$maxHistorial','30','$dataSet[$i]')")){
                         echo "Dato ingresado correctamente";
                         $j=31;
                     }
+                    else{
+                        echo "Error, no se ha podido ingresar el dato","<br>";
+                        echo $mysqli->error,"<br>";
+                    }
+                }
+                else{
+                    echo "Error, no se ha podido ingresar el dato","<br>";
+                    echo $mysqli->error,"<br>";
                 }
             }
         }
