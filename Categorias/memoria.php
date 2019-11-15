@@ -394,6 +394,10 @@ else{
                 </section>
             </section>
         </section>
+        <section class="row mt-3">
+            <section class="col-2">Obseraciones:</section>
+            <section class="col-10"><textarea class="form-control" id="textArea" name="textArea1" rows="3"></textarea></section>
+        </section>
         <section class="row border-top text-center mt-4 pt-2">
             <section class="col">
                 <h3>Interpretacion</h3>

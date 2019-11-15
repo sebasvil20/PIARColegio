@@ -31,7 +31,7 @@ else{
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="motivacion.php">Motivacion</a>
                         <a class="dropdown-item" href="sensoper.php">Senso-Percepcion</a>
-                        <a class="dropdown-item" href="atenria.php">atenria</a>
+                        <a class="dropdown-item" href="atenria.php">Memoria</a>
                         <a class="dropdown-item" href="atencion.php">Atencion</a>
                     </div>
                 </li>
@@ -396,7 +396,7 @@ else{
         </section>
         <section class="row mt-3">
             <section class="col-2">Obseraciones:</section>
-            <section class="col-10"><textarea class="form-control" id="textArea" rows="3"></textarea></section>
+            <section class="col-10"><textarea class="form-control" id="textArea" name="textArea1" rows="3"></textarea></section>
         </section>
     </form>
     <section class="row border-top text-center mt-4 pt-2">

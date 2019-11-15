@@ -19,6 +19,8 @@ $dato10 = $_POST['atenItem10'];
 $dato11 = $_POST['atenItem11'];
 $dato12 = $_POST['atenItem12'];
 
+$observaciones = $_POST['textArea1'];
+
 //Se define el array con los datos para despues acceder a ellos mas facilmente
 $dataSet = array($dato1,$dato2,$dato3,$dato4,$dato5,$dato6,$dato7,$dato8,$dato9,$dato10,$dato11,$dato12);
 
@@ -34,7 +36,7 @@ if (mysqli_num_rows($resultado)>0)
     }
     $j = 38;
     for ($i = 0;$i<count($dataSet);$i++){
-        if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`) VALUES ('',$IdHistorial,'$j','$dataSet[$i]')")){
+        if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`,`Observaciones`) VALUES ('',$IdHistorial,'$j','$dataSet[$i]','$observaciones')")){
             echo "Dato ingresado correctamente";
             $j++;
         }
@@ -56,7 +58,7 @@ else {
     if($mysqli->query("INSERT INTO `thistorialestud`(`IdHistorial`, `IdIdentificacionEst`, `IdIdentificacionProf`, `FechaHistoria`) VALUES ('$maxHistorial','$idEstudiante','$idEvaluador','$Fecha')")){
         $j = 38;
         for ($i = 0;$i<count($dataSet);$i++){
-            if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`) VALUES ('',$maxHistorial,'$j','$dataSet[$i]')")){
+            if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`,`Observaciones`) VALUES ('',$maxHistorial,'$j','$dataSet[$i]','$observaciones')")){
                 echo "Dato ingresado correctamente";
                 $j++;
             }

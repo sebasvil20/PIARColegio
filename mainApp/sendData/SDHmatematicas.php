@@ -7,25 +7,43 @@ $Fecha = $_POST['Fecha1'];
 
 
 //Datos de la evaluacion -----------------------
-$dato1 = $_POST['memoItem1'];
-$dato2 = $_POST['memoItem2'];
-$dato3 = $_POST['memoItem3'];
-$dato4 = $_POST['memoItem4'];
-$dato5 = $_POST['memoItem5'];
-$dato6 = $_POST['memoItem6'];
-$dato7 = $_POST['memoItem7'];
-$dato8 = $_POST['memoItem8'];
-$dato9 = $_POST['memoItem9'];
-$dato10 = $_POST['memoItem10'];
-$dato11 = $_POST['memoItem11'];
-$dato12 = $_POST['memoItem12'];
+$dato1 = $_POST['hMateItem1'];
+$dato2 = $_POST['hMateItem2'];
+$dato3 = $_POST['hMateItem3'];
+$dato4 = $_POST['hMateItem4'];
+$dato5 = $_POST['hMateItem5'];
+$dato6 = $_POST['hMateItem6'];
+$dato7 = $_POST['hMateItem7'];
+$dato8 = $_POST['hMateItem8'];
+$dato9 = $_POST['hMateItem9'];
+$dato10 = $_POST['hMateItem10'];
+$dato11 = $_POST['hMateItem11'];
+$dato12 = $_POST['hMateItem12'];
+$dato13 = $_POST['hMateItem13'];
+$dato14 = $_POST['hMateItem14'];
 
-$observaciones = $_POST['textArea1'];
+//Precisiones de la evaluacion
+
+//Datos de la evaluacion -----------------------
+$datoPres1 = $_POST['textAreaPres1'];
+$datoPres2 = $_POST['textAreaPres2'];
+$datoPres3 = $_POST['textAreaPres3'];
+$datoPres4 = $_POST['textAreaPres4'];
+$datoPres5 = $_POST['textAreaPres5'];
+$datoPres6 = $_POST['textAreaPres6'];
+$datoPres7 = $_POST['textAreaPres7'];
+$datoPres8 = $_POST['textAreaPres8'];
+$datoPres9 = $_POST['textAreaPres9'];
+$datoPres10 = $_POST['textAreaPres10'];
+$datoPres11 = $_POST['textAreaPres11'];
+$datoPres12 = $_POST['textAreaPres12'];
+$datoPres13 = $_POST['textAreaPres13'];
+$datoPres14 = $_POST['textAreaPres14'];
+
 
 //Se define el array con los datos para despues acceder a ellos mas facilmente
-$dataSet = array($dato1,$dato2,$dato3,$dato4,$dato5,$dato6,$dato7,$dato8,$dato9,$dato10,$dato11,$dato12);
-
-
+$dataSet = array($dato1,$dato2,$dato3,$dato4,$dato5,$dato6,$dato7,$dato8,$dato9,$dato10,$dato11,$dato12,$dato13,$dato14);
+$dataSetPres = array($datoPres1,$datoPres2,$datoPres3,$datoPres4,$datoPres5,$datoPres6,$datoPres7,$datoPres8,$datoPres9,$datoPres10,$datoPres11,$datoPres12,$datoPres13,$datoPres14);
 
 //Se consulta si el registro del historial ya existe, y dependiendo si la respuesta es falsa o no, se crea uno nuevo o no, despues se ingresan los datos a la db
 $consulta="select IdHistorial from thistorialestud where IdIdentificacionEst='$idEstudiante'";
@@ -38,7 +56,7 @@ if (mysqli_num_rows($resultado)>0)
     }
     $j = 1;
     for ($i = 0;$i<count($dataSet);$i++){
-        if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`,`Observaciones`) VALUES ('',$IdHistorial,'$j','$dataSet[$i]','$observaciones')")){
+        if($mysqli->query("INSERT INTO `tdetallehabilidad`(`idDetalleHabilidad`, `idHistorial`, `idDescriptor`, `Valoracion`, `Precisiones`) VALUES ('','$IdHistorial','$j','$dataSet[$i]','$dataSetPres[$i]')")){
             echo "Dato ingresado correctamente";
             $j++;
         }
@@ -60,7 +78,7 @@ else {
     if($mysqli->query("INSERT INTO `thistorialestud`(`IdHistorial`, `IdIdentificacionEst`, `IdIdentificacionProf`, `FechaHistoria`) VALUES ('$maxHistorial','$idEstudiante','$idEvaluador','$Fecha')")){
         $j = 1;
         for ($i = 0;$i<count($dataSet);$i++){
-            if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`,`Observaciones`) VALUES ('',$maxHistorial,'$j','$dataSet[$i]','$observaciones')")){
+            if($mysqli->query("INSERT INTO `tdetallehabilidad`(`idDetalleHabilidad`, `idHistorial`, `idDescriptor`, `Valoracion`, `Precisiones`) VALUES ('','$maxHistorial','$j','$dataSet[$i]','$dataSetPres[$i]')")){
                 echo "Dato ingresado correctamente";
                 $j++;
             }
@@ -75,14 +93,4 @@ else {
         echo $mysqli->error;
     }
 }
-
-
-
-
-
-
-
-
-
-
 ?>

@@ -69,12 +69,41 @@ $Item14 = "Organiza datos y los expresa en gráficos";
             </ul>
         </section>
     </section>
+    <form action="../mainApp/sendData/SDHmatematicas.php" method="POST">
     <section class="row border-bottom mt-4 mb-2">
         <ul class="menuInterno mb-4 pb-2 pt-2">
-            <li><i class="far fa-save mr-2"></i>Guardar</li>
+            <li><i class="far fa-save mr-2"></i><input type="submit" value="Guardar" style="border:none;"></li>
             <li><i class="far fa-sticky-note mr-2"></i>Limpiar</li>
             <li><a href="../Inicio.php"><i class="fas fa-backward mr-2"></i>Regresar al inicio</a></li>
         </ul>
+    </section>
+    <section>
+        <div class="form-group">
+            <section class="row">
+                <section class="col-3">
+                    <label for="IdentificacionEstudiante">Identificacion del estudiante</label>
+                </section>
+                <section class="col-9">
+                    <input type="text" class="form-control" id="idEstudiante1" name="idEstudiante1" placeholder="Ingrese la identificacion del estudiante">
+                </section>
+            </section>
+            <section class="row">
+                <section class="col-3">
+                    <label for="IdentificacionEvaluador">Identificacion del evaluador</label>
+                </section>
+                <section class="col-9">
+                    <input type="text" class="form-control" id="idEvualuador1" name="idEvualuador1" placeholder="Ingrese la identificacion del evaluador (Profesor-Psicologa)">
+                </section>
+            </section>
+            <section class="row">
+                <section class="col-3">
+                    <label for="Fecha1">fecha</label>
+                </section>
+                <section class="col-9">
+                    <input type="date" class="form-control" id="Fecha1" name="Fecha1">
+                </section>
+            </section>
+        </div>
     </section>
     <section class="row text-center mt-5 border border-dark">
         <section class="col-1 border border-dark">N°</section>
@@ -82,8 +111,6 @@ $Item14 = "Organiza datos y los expresa en gráficos";
         <section class="col-2 border border-dark">Valoracion</section>
         <section class="col-3 border border-dark">Precisiones</section>
     </section>
-    <form action="">
-
         <section class="row pt-1">
             <section class="col-1">
                 <section class="row text-center">
@@ -110,7 +137,7 @@ $Item14 = "Organiza datos y los expresa en gráficos";
             </section>
             <section class="col-3">
                 <section class="row">
-                    <section class="col-12"><textarea class="form-control w-100" id="textArea" rows="2"></textarea></section>
+                    <section class="col-12"><textarea class="form-control w-100" id="textArea" name="textAreaPres1"  rows="2"></textarea></section>
                 </section>
             </section>
         </section>
@@ -141,7 +168,7 @@ $Item14 = "Organiza datos y los expresa en gráficos";
             </section>
             <section class="col-3">
                 <section class="row">
-                    <section class="col-12"><textarea class="form-control w-100" id="textArea" rows="2"></textarea></section>
+                    <section class="col-12"><textarea class="form-control w-100" id="textArea" name="textAreaPres2"  rows="2"></textarea></section>
                 </section>
             </section>
         </section>
@@ -172,7 +199,7 @@ $Item14 = "Organiza datos y los expresa en gráficos";
             </section>
             <section class="col-3">
                 <section class="row">
-                    <section class="col-12"><textarea class="form-control w-100" id="textArea" rows="2"></textarea></section>
+                    <section class="col-12"><textarea class="form-control w-100" id="textArea" name="textAreaPres3"  rows="2"></textarea></section>
                 </section>
             </section>
         </section>
@@ -203,7 +230,7 @@ $Item14 = "Organiza datos y los expresa en gráficos";
             </section>
             <section class="col-3">
                 <section class="row">
-                    <section class="col-12"><textarea class="form-control w-100" id="textArea" rows="2"></textarea></section>
+                    <section class="col-12"><textarea class="form-control w-100" id="textArea"  name="textAreaPres4" rows="2"></textarea></section>
                 </section>
             </section>
         </section>
@@ -234,7 +261,7 @@ $Item14 = "Organiza datos y los expresa en gráficos";
             </section>
             <section class="col-3">
                 <section class="row">
-                    <section class="col-12"><textarea class="form-control w-100" id="textArea" rows="2"></textarea></section>
+                    <section class="col-12"><textarea class="form-control w-100" id="textArea" name="textAreaPres5"  rows="2"></textarea></section>
                 </section>
             </section>
         </section>
@@ -265,7 +292,7 @@ $Item14 = "Organiza datos y los expresa en gráficos";
             </section>
             <section class="col-3">
                 <section class="row">
-                    <section class="col-12"><textarea class="form-control w-100" id="textArea" rows="2"></textarea></section>
+                    <section class="col-12"><textarea class="form-control w-100" id="textArea" name="textAreaPres6"  rows="2"></textarea></section>
                 </section>
             </section>
         </section>
@@ -296,7 +323,7 @@ $Item14 = "Organiza datos y los expresa en gráficos";
             </section>
             <section class="col-3">
                 <section class="row">
-                    <section class="col-12"><textarea class="form-control w-100" id="textArea" rows="2"></textarea></section>
+                    <section class="col-12"><textarea class="form-control w-100" id="textArea" name="textAreaPres7"  rows="2"></textarea></section>
                 </section>
             </section>
         </section>
@@ -327,7 +354,7 @@ $Item14 = "Organiza datos y los expresa en gráficos";
             </section>
             <section class="col-3">
                 <section class="row">
-                    <section class="col-12"><textarea class="form-control w-100" id="textArea" rows="2"></textarea></section>
+                    <section class="col-12"><textarea class="form-control w-100" id="textArea" name="textAreaPres8"  rows="2"></textarea></section>
                 </section>
             </section>
         </section>
@@ -358,7 +385,7 @@ $Item14 = "Organiza datos y los expresa en gráficos";
             </section>
             <section class="col-3">
                 <section class="row">
-                    <section class="col-12"><textarea class="form-control w-100" id="textArea" rows="2"></textarea></section>
+                    <section class="col-12"><textarea class="form-control w-100" id="textArea" name="textAreaPres9"  rows="2"></textarea></section>
                 </section>
             </section>
         </section>
@@ -389,7 +416,7 @@ $Item14 = "Organiza datos y los expresa en gráficos";
             </section>
             <section class="col-3">
                 <section class="row">
-                    <section class="col-12"><textarea class="form-control w-100" id="textArea" rows="2"></textarea></section>
+                    <section class="col-12"><textarea class="form-control w-100" id="textArea" name="textAreaPres10"  rows="2"></textarea></section>
                 </section>
             </section>
         </section>
@@ -420,7 +447,7 @@ $Item14 = "Organiza datos y los expresa en gráficos";
             </section>
             <section class="col-3">
                 <section class="row">
-                    <section class="col-12"><textarea class="form-control w-100" id="textArea" rows="2"></textarea></section>
+                    <section class="col-12"><textarea class="form-control w-100" id="textArea" name="textAreaPres11"  rows="2"></textarea></section>
                 </section>
             </section>
         </section>
@@ -451,7 +478,7 @@ $Item14 = "Organiza datos y los expresa en gráficos";
             </section>
             <section class="col-3">
                 <section class="row">
-                    <section class="col-12"><textarea class="form-control w-100" id="textArea" rows="2"></textarea></section>
+                    <section class="col-12"><textarea class="form-control w-100" id="textArea" name="textAreaPres12"  rows="2"></textarea></section>
                 </section>
             </section>
         </section>
@@ -482,7 +509,7 @@ $Item14 = "Organiza datos y los expresa en gráficos";
             </section>
             <section class="col-3">
                 <section class="row">
-                    <section class="col-12"><textarea class="form-control w-100" id="textArea" rows="2"></textarea></section>
+                    <section class="col-12"><textarea class="form-control w-100" id="textArea" name="textAreaPres13"  rows="2"></textarea></section>
                 </section>
             </section>
         </section>
@@ -513,14 +540,14 @@ $Item14 = "Organiza datos y los expresa en gráficos";
             </section>
             <section class="col-3">
                 <section class="row">
-                    <section class="col-12"><textarea class="form-control w-100" id="textArea" rows="2"></textarea></section>
+                    <section class="col-12"><textarea class="form-control w-100" id="textArea" name="textAreaPres14" rows="2"></textarea></section>
                 </section>
             </section>
         </section>
 
         <section class="row mt-3">
             <section class="col-4">Obseraciones(Definir si el desempeño es consecuente con el grado escolar que cursa):</section>
-            <section class="col-8"><textarea class="form-control" name="hMotObservaciones" id="textArea" rows="3"></textarea></section>
+            <section class="col-8"><textarea class="form-control" name="hMotObservaciones" id="textArea" name="textAreaObser"  rows="3"></textarea></section>
         </section>
     </form>
     <section class="row border-top text-center mt-4 pt-2">
