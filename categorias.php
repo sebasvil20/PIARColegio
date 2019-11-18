@@ -21,19 +21,20 @@ else{
 </head>
 <body>
 <section class="container">
+    <div class="alert alert-primary alert-dismissible fade show mt-4" role="alert">
+        <strong>Seleccione la evaluacion para empezar!</strong> Tambien puedes volver al inicio haciendo click <strong><a
+                    href="Inicio.php">aqui</a></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
     <img src="img/logo2.png" class="giant" alt="">
     <section class="main">
         <section class="row">
             <section class="col-md-6 col-lg-4 col-12 mb-4 mt-4 text-center columna">
-                <a href="Categorias/motivacion.php">
-                    <img src="img/unMotivacion.png" alt="">
-                    <img src="nombres/MOTIVACION.png" alt="logo atencion">
-                </a>
-            </section>
-            <section class="col-md-6 col-lg-4 col-12 mt-4 text-center columna">
-                <a href="Categorias/sensoper.php">
-                    <img src="img/unSensoper.png" alt="">
-                    <img src="nombres/SENSOPERCEPCIÓN.png" alt="">
+                <a href="Categorias/atencion.php">
+                    <img src="img/unAtencion.png" alt="">
+                    <img src="nombres/ATENCION.png" alt="">
                 </a>
             </section>
             <section class="col-md-6 col-12 col-lg-4 mb-4 mt-4 text-center columna">
@@ -43,9 +44,27 @@ else{
                 </a>
             </section>
             <section class="col-md-6 col-lg-4 col-12 mb-4 mt-4 text-center columna">
-                <a href="Categorias/atencion.php">
-                    <img src="img/unAtencion.png" alt="">
-                    <img src="nombres/ATENCION.png" alt="">
+                <a href="Categorias/motivacion.php">
+                    <img src="img/unMotivacion.png" alt="">
+                    <img src="nombres/MOTIVACION.png">
+                </a>
+            </section>
+            <section class="col-md-6 col-lg-4 col-12 mt-4 text-center columna">
+                <a href="Categorias/sensoper.php">
+                    <img src="img/unSensoper.png" alt="">
+                    <img src="nombres/SENSOPERCEPCIÓN.png" alt="">
+                </a>
+            </section>
+            <section class="col-md-6 col-12 col-lg-4 mb-4 mt-4 text-center columna">
+                <a href="Categorias/hMatematicas.php">
+                    <img src="img/unHabilidadesMatematicas.png" alt="">
+                    <img src="nombres/HABILIDADESMATEMÁTICAS.png" alt="">
+                </a>
+            </section>
+            <section class="col-md-6 col-12 col-lg-4 mb-4 mt-4 text-center columna">
+                <a href="Categorias/hLectoescritura.php">
+                    <img src="img/unHabilidadesLectura.png" alt="">
+                    <img src="nombres/HABILIDADESLECTOESCRITURA.png" alt="">
                 </a>
             </section>
             <section class="col-md-6 col-lg-4 col-12 mb-4 mt-4 text-center columna">
@@ -55,34 +74,27 @@ else{
                 </a>
             </section>
             <section class="col-md-6 col-12 col-lg-4 mb-4 mt-4 text-center columna">
+                <a href="Categorias/hSocioafectivas.php">
+                    <img src="img/unHabilidadesSocioafectivas.png" alt="">
+                    <img src="nombres/HABILIDADESSOCIOAFECTIVAS.png" alt="">
+                </a>
+            </section>
+            <section class="col-md-6 col-12 col-lg-4 mb-4 mt-4 text-center columna">
                 <a href="Categorias/hComunicativas.php">
                     <img src="img/unHabilidadesComu.png" alt="">
                     <img src="nombres/HABILIDADESCOMUNICATIVAS.png" alt="">
                 </a>
             </section>
-            <section class="col-md-6 col-12 col-lg-4 mb-4 mt-4 text-center columna">
-                <a href="Categorias/hSocioafectivas.php">
-                    <img src="nombres/HABILIDADESSOCIOAFECTIVAS.png" alt="">
+            <section class="col-md-6 col-12 col-lg-4 mb-4 mt-4 offset-2 text-center columna">
+                <a href="Categorias/hMotrices.php">
+                    <img src="img/unHabilidadesMotrices.png" alt="">
+                    <img src="nombres/HABILIDADESMOTRICES.png" alt="">
                 </a>
             </section>
             <section class="col-md-6 col-12 col-lg-4 mb-4 mt-4 text-center columna">
                 <a href="Categorias/hAutocuidadoIndependencia.php">
+                    <img src="img/unHabilidadesAEI.png" alt="">
                     <img src="nombres/HABILIDADESAUTOCUIDADINDEPENDENCIA.png" alt="">
-                </a>
-            </section>
-            <section class="col-md-6 col-12 col-lg-4 mb-4 mt-4 text-center columna">
-                <a href="Categorias/hMotrices.php">
-                    <img src="nombres/HABILIDADESMOTRICES.png" alt="">
-                </a>
-            </section>
-            <section class="col-md-6 col-12 col-lg-4 mb-4 mt-4 offset-2 text-center columna">
-                <a href="Categorias/hLectoescritura.php">
-                    <img src="nombres/HABILIDADESLECTOESCRITURA.png" alt="">
-                </a>
-            </section>
-            <section class="col-md-6 col-12 col-lg-4 mb-4 mt-4 text-center columna">
-                <a href="Categorias/hMatematicas.php">
-                    <img src="nombres/HABILIDADESMATEMÁTICAS.png" alt="">
                 </a>
             </section>
         </section>

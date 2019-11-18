@@ -30,20 +30,20 @@ $consulta="select IdHistorial from thistorialestud where IdIdentificacionEst='$i
 $resultado=mysqli_query($mysqli,$consulta) or die (mysqli_error());
 if (mysqli_num_rows($resultado)>0)
 {
-    echo "Existe el historial";
+    echo "Existe el historial","<br>";
     while($row=mysqli_fetch_array($resultado)){
         $IdHistorial=$row[0];
     }
     $j = 25;
     for ($i = 0;$i<count($dataSet);$i++){
         if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`,`Observaciones`) VALUES ('','$IdHistorial','$j','$dataSet[$i]','$observaciones')")){
-            echo "Dato ingresado correctamente";
+            echo "Dato $i se ha ingresado correctamente","<br>";
             $j++;
         }
         else{
             if($j==29){
                 if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`,`Observaciones`) VALUES ('','$IdHistorial','30','$dataSet[$i]','$observaciones')")){
-                    echo "Dato ingresado correctamente";
+                    echo "Dato $i se ha ingresado correctamente","<br>";
                     $j=31;
                 }
                 else{
@@ -71,13 +71,13 @@ else {
         $j = 25;
         for ($i = 0;$i<count($dataSet);$i++){
             if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`,`Observaciones`) VALUES ('','$maxHistorial','$j','$dataSet[$i]','$observaciones')")){
-                echo "Dato ingresado correctamente";
+                echo "Dato $i se ha ingresado correctamente","<br>";
                 $j++;
             }
             else{
                 if($j==29){
                     if($mysqli->query("INSERT INTO `tdetallehistlapren`(`DetalleHistlApren`, `idHistoria`, `idItemcat`, `Valoracion`,`Observaciones`) VALUES ('','$maxHistorial','30','$dataSet[$i]','$observaciones')")){
-                        echo "Dato ingresado correctamente";
+                        echo "Dato $i se ha ingresado correctamente","<br>";
                         $j=31;
                     }
                     else{

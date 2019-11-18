@@ -4,3 +4,10 @@
     align-content: center;
     justify-content: center;
 }
+.giant{
+    position: absolute;
+    opacity: 0.2;
+    left:50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}

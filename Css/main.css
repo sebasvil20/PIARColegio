@@ -4,18 +4,11 @@ body{
 
 }
 
-.giant{
-    position: absolute;
-    opacity: 0.1;
-    left:50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-}
 nav{
     width: 50%;
     position: relative;
     left: 50%;
-    top: 3;
+    top: 3%;
     transform: translate(-50%,-3%);
 }
 

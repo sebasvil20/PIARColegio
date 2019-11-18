@@ -28,6 +28,18 @@ else{
 </head>
 
 <body>
+<section class="container">
+
+<div class="alert alert-success text-center mt-4" role="alert">
+    <h4 class="alert-heading">Consulta de registros y graficos</h4>
+    <hr>
+    <p>En cada tabla se vera el resultado de cada una de las evaluaciones realizadas, si la evaluacion no se ha realizado, no se mostrara aca. En las graficas se vera reflejado el resultado de las tablas</p>
+    <button type="button" onclick="volverInicio()" class="btn btn-primary">Volver al inicio</button>
+    <script>
+        function volverInicio() {
+            location.href='../Inicio.php'; }
+    </script>
+</div>
 <!--  ---------------------------------------------------------------------- Inicio bloque aprendizajes ---------------------------------------------------------------------------->
 <h2>
     Aprendizajes
@@ -62,10 +74,10 @@ WHERE testudiante.IdIdentificacionEst='$idAlumno' && tdetallehistlapren.Valoraci
     {
         echo "<table class=\"egt\">
               <tr>
-                <th>Valoracion</th>
-                <th>Numero total</th>
-                <th>Aprendizaje</th>
-                <th>Nombre Alumno</th>
+                <th style='width: 100px;'>Valoracion</th>
+                <th style='width: 150px;'>Numero total</th>
+                <th style='width: 150px;'>Aprendizaje</th>
+                <th style='width: 200px;'>Nombre Alumno</th>
               </tr>";
         while ($fila = $resultado->fetch_row()) {
             echo "<tr>
@@ -254,10 +266,10 @@ if($resultadoHabilidades1 = $mysqli->query($consultaHabilidades1))
 {
     echo "<table class=\"egt\">
               <tr>
-                <th>Valoracion</th>
-                <th>Numero total</th>
-                <th>Habilidad</th>
-                <th>Nombre Alumno</th>
+                <th style='width: 100px;'>Valoracion</th>
+                <th style='width: 150px;'>Numero total</th>
+                <th style='width: 200px;'>Habilidad</th>
+                <th style='width: 200px;'>Nombre Alumno</th>
               </tr>";
     while ($filaHabilidades1 = $resultadoHabilidades1->fetch_row()) {
         echo "<tr>
@@ -328,13 +340,12 @@ $consultaHabilidades3 = "SELECT
 if($resultadoHabilidades3 = $mysqli->query($consultaHabilidades3))
 {
     while ($filaHabilidades3 = $resultadoHabilidades3->fetch_row()) {
-        echo "
-                                      <tr>
-                                        <td>$filaHabilidades3[0]</td>
-                                        <td id='resultadosHabilidades3'>$filaHabilidades3[1]</td>
-                                        <td>$filaHabilidades3[2]</td>
-                                        <td>$filaHabilidades3[3]</td>
-                                      </tr>";
+        echo "<tr>
+            <td>$filaHabilidades3[0]</td>
+            <td id='resultadosHabilidades3'>$filaHabilidades3[1]</td>
+            <td>$filaHabilidades3[2]</td>
+            <td>$filaHabilidades3[3]</td>
+          </tr>";
     }
 }
 else{
@@ -363,13 +374,12 @@ $consultaHabilidades4 = "SELECT
 if($resultadoHabilidades4 = $mysqli->query($consultaHabilidades4))
 {
     while ($filaHabilidades4 = $resultadoHabilidades4->fetch_row()) {
-        echo "
-                  <tr>
-                    <td>$filaHabilidades4[0]</td>
-                    <td id='resultadosHabilidades4'>$filaHabilidades4[1]</td>
-                    <td>$filaHabilidades4[2]</td>
-                    <td>$filaHabilidades4[3]</td>
-                  </tr>";
+    echo "<tr>
+        <td>$filaHabilidades4[0]</td>
+        <td id='resultadosHabilidades4'>$filaHabilidades4[1]</td>
+        <td>$filaHabilidades4[2]</td>
+        <td>$filaHabilidades4[3]</td>
+      </tr>";
     }
     echo "</table>";
 }
@@ -382,10 +392,34 @@ else{
 <script>
     //Se obtienen los datos de lo impreso por el php, se sacan directamente del html
     //Aca no se totalmente como funcionan los colores en las barras, pero en una de todos mis intentos salio, y lo deje asi :(
-    var valoracion0Habilidad1 = document.getElementById('resultadosHabilidades1').innerText;
-    var valoracion1Habilidad1 = document.getElementById('resultadosHabilidades2').innerText;
-    var valoracion2Habilidad1 = document.getElementById('resultadosHabilidades3').innerText;
-    var valoracion3Habilidad1 = document.getElementById('resultadosHabilidades4').innerText;
+    var valoracion0Habilidad1=0;
+    var valoracion1Habilidad1=0;
+    var valoracion2Habilidad1=0;
+    var valoracion3Habilidad1=0;
+    try{
+        valoracion0Habilidad1 = document.getElementById('resultadosHabilidades1').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion1Habilidad1 = document.getElementById('resultadosHabilidades2').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion2Habilidad1 = document.getElementById('resultadosHabilidades3').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion3Habilidad1 = document.getElementById('resultadosHabilidades4').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
 
     console.log(valoracion0Habilidad1,valoracion1Habilidad1,valoracion2Habilidad1,valoracion3Habilidad1);
 
@@ -508,10 +542,10 @@ if($resultadoHabilidadesLecto1 = $mysqli->query($consultaHabilidadesLecto1))
 {
     echo "<table class=\"egt\">
               <tr>
-                <th>Valoracion</th>
-                <th>Numero total</th>
-                <th>Habilidad</th>
-                <th>Nombre Alumno</th>
+                <th style='width: 100px;'>Valoracion</th>
+                <th style='width: 150px;'>Numero total</th>
+                <th style='width: 200px;'>Habilidad</th>
+                <th style='width: 200px;'>Nombre Alumno</th>
               </tr>";
     while ($filaHabilidadesLecto1 = $resultadoHabilidadesLecto1->fetch_row()) {
         echo "<tr>
@@ -582,13 +616,12 @@ $consultaHabilidadesLecto3 = "SELECT
 if($resultadoHabilidadesLecto3 = $mysqli->query($consultaHabilidadesLecto3))
 {
     while ($filaHabilidadesLecto3 = $resultadoHabilidadesLecto3->fetch_row()) {
-        echo "
-                                      <tr>
-                                        <td>$filaHabilidadesLecto3[0]</td>
-                                        <td id='resultadosHabilidadesLecto3'>$filaHabilidadesLecto3[1]</td>
-                                        <td>$filaHabilidadesLecto3[2]</td>
-                                        <td>$filaHabilidadesLecto3[3]</td>
-                                      </tr>";
+        echo "<tr>
+            <td>$filaHabilidadesLecto3[0]</td>
+            <td id='resultadosHabilidadesLecto3'>$filaHabilidadesLecto3[1]</td>
+            <td>$filaHabilidadesLecto3[2]</td>
+            <td>$filaHabilidadesLecto3[3]</td>
+          </tr>";
     }
 }
 else{
@@ -617,13 +650,12 @@ $consultaHabilidadesLecto4 = "SELECT
 if($resultadoHabilidadesLecto4 = $mysqli->query($consultaHabilidadesLecto4))
 {
     while ($filaHabilidadesLecto4 = $resultadoHabilidadesLecto4->fetch_row()) {
-        echo "
-                  <tr>
-                    <td>$filaHabilidadesLecto4[0]</td>
-                    <td id='resultadosHabilidadesLecto4'>$filaHabilidadesLecto4[1]</td>
-                    <td>$filaHabilidadesLecto4[2]</td>
-                    <td>$filaHabilidadesLecto4[3]</td>
-                  </tr>";
+        echo "<tr>
+            <td>$filaHabilidadesLecto4[0]</td>
+            <td id='resultadosHabilidadesLecto4'>$filaHabilidadesLecto4[1]</td>
+            <td>$filaHabilidadesLecto4[2]</td>
+            <td>$filaHabilidadesLecto4[3]</td>
+          </tr>";
     }
     echo "</table>";
 }
@@ -637,10 +669,35 @@ else{
     //Se obtienen los datos de lo impreso por el php, se sacan directamente del html
     //Aca no se totalmente como funcionan los colores en las barras, pero en una de todos mis intentos salio, y lo deje asi :(
     //En este comentario explico la nomenclatura de esta parte del js,   valoracion + (El numero de la valoracion que son 0,1,2,3) + Habilidad + (El numero de habilidad, basicas matematicas es la habilidad 1, basicas lectoescritura es la 2, etc)
-    var valoracion0Habilidad2 = document.getElementById('resultadosHabilidadesLecto1').innerText;
-    var valoracion1Habilidad2 = document.getElementById('resultadosHabilidadesLecto2').innerText;
-    var valoracion2Habilidad2 = document.getElementById('resultadosHabilidadesLecto3').innerText;
-    var valoracion3Habilidad2 = document.getElementById('resultadosHabilidadesLecto4').innerText;
+
+    var valoracion0Habilidad2=0;
+    var valoracion1Habilidad2=0;
+    var valoracion2Habilidad2=0;
+    var valoracion3Habilidad2=0;
+    try{
+        valoracion0Habilidad2 = document.getElementById('resultadosHabilidadesLecto1').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion1Habilidad2 = document.getElementById('resultadosHabilidadesLecto2').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion2Habilidad2 = document.getElementById('resultadosHabilidadesLecto3').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion3Habilidad2 = document.getElementById('resultadosHabilidadesLecto4').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
 
     console.log(valoracion0Habilidad1,valoracion1Habilidad1,valoracion2Habilidad1,valoracion3Habilidad1);
 
@@ -764,10 +821,10 @@ if($resultadoHabilidadesCognitivas1 = $mysqli->query($consultaHabilidadesCogniti
 {
     echo "<table class=\"egt\">
               <tr>
-                <th>Valoracion</th>
-                <th>Numero total</th>
-                <th>Habilidad</th>
-                <th>Nombre Alumno</th>
+                <th style='width: 100px;'>Valoracion</th>
+                <th style='width: 150px;'>Numero total</th>
+                <th style='width: 200px;'>Habilidad</th>
+                <th style='width: 200px;'>Nombre Alumno</th>
               </tr>";
     while ($filaHabilidadesCognitivas1 = $resultadoHabilidadesCognitivas1->fetch_row()) {
         echo "<tr>
@@ -838,13 +895,12 @@ $consultaHabilidadesCognitivas3 = "SELECT
 if($resultadoHabilidadesCognitivas3 = $mysqli->query($consultaHabilidadesCognitivas3))
 {
     while ($filaHabilidadesCognitivas3 = $resultadoHabilidadesCognitivas3->fetch_row()) {
-        echo "
-                                      <tr>
-                                        <td>$filaHabilidadesCognitivas3[0]</td>
-                                        <td id='resultadosHabilidadesCognitivas3'>$filaHabilidadesCognitivas3[1]</td>
-                                        <td>$filaHabilidadesCognitivas3[2]</td>
-                                        <td>$filaHabilidadesCognitivas3[3]</td>
-                                      </tr>";
+        echo "<tr>
+            <td>$filaHabilidadesCognitivas3[0]</td>
+            <td id='resultadosHabilidadesCognitivas3'>$filaHabilidadesCognitivas3[1]</td>
+            <td>$filaHabilidadesCognitivas3[2]</td>
+            <td>$filaHabilidadesCognitivas3[3]</td>
+          </tr>";
     }
 }
 else{
@@ -873,13 +929,12 @@ $consultaHabilidadesCognitivas4 = "SELECT
 if($resultadoHabilidadesCognitivas4 = $mysqli->query($consultaHabilidadesCognitivas4))
 {
     while ($filaHabilidadesCognitivas4 = $resultadoHabilidadesCognitivas4->fetch_row()) {
-        echo "
-                  <tr>
-                    <td>$filaHabilidadesCognitivas4[0]</td>
-                    <td id='resultadosHabilidadesCognitivas4'>$filaHabilidadesCognitivas4[1]</td>
-                    <td>$filaHabilidadesCognitivas4[2]</td>
-                    <td>$filaHabilidadesCognitivas4[3]</td>
-                  </tr>";
+        echo "<tr>
+            <td>$filaHabilidadesCognitivas4[0]</td>
+            <td id='resultadosHabilidadesCognitivas4'>$filaHabilidadesCognitivas4[1]</td>
+            <td>$filaHabilidadesCognitivas4[2]</td>
+            <td>$filaHabilidadesCognitivas4[3]</td>
+          </tr>";
     }
     echo "</table>";
 }
@@ -893,10 +948,35 @@ else{
     //Se obtienen los datos de lo impreso por el php, se sacan directamente del html
     //Aca no se totalmente como funcionan los colores en las barras, pero en una de todos mis intentos salio, y lo deje asi :(
     //En este comentario explico la nomenclatura de esta parte del js,   valoracion + (El numero de la valoracion que son 0,1,2,3) + Habilidad + (El numero de habilidad, basicas matematicas es la habilidad 1, basicas lectoescritura es la 2, etc)
-    var valoracion0Habilidad3 = document.getElementById('resultadosHabilidadesCognitivas1').innerText;
-    var valoracion1Habilidad3 = document.getElementById('resultadosHabilidadesCognitivas2').innerText;
-    var valoracion2Habilidad3 = document.getElementById('resultadosHabilidadesCognitivas3').innerText;
-    var valoracion3Habilidad3 = document.getElementById('resultadosHabilidadesCognitivas4').innerText;
+
+    var valoracion0Habilidad3=0;
+    var valoracion1Habilidad3=0;
+    var valoracion2Habilidad3=0;
+    var valoracion3Habilidad3=0;
+    try{
+        valoracion0Habilidad3 = document.getElementById('resultadosHabilidadesCognitivas1').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion1Habilidad3 = document.getElementById('resultadosHabilidadesCognitivas2').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion2Habilidad3 = document.getElementById('resultadosHabilidadesCognitivas3').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion3Habilidad3 = document.getElementById('resultadosHabilidadesCognitivas4').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
 
     console.log(valoracion0Habilidad1,valoracion1Habilidad1,valoracion2Habilidad1,valoracion3Habilidad1);
 
@@ -1022,10 +1102,10 @@ if($resultadoHabilidadesSocioafectivas1 = $mysqli->query($consultaHabilidadesSoc
 {
     echo "<table class=\"egt\">
               <tr>
-                <th>Valoracion</th>
-                <th>Numero total</th>
-                <th>Habilidad</th>
-                <th>Nombre Alumno</th>
+                <th style='width: 100px;'>Valoracion</th>
+                <th style='width: 150px;'>Numero total</th>
+                <th style='width: 200px;'>Habilidad</th>
+                <th style='width: 200px;'>Nombre Alumno</th>
               </tr>";
     while ($filaHabilidadesSocioafectivas1 = $resultadoHabilidadesSocioafectivas1->fetch_row()) {
         echo "<tr>
@@ -1096,13 +1176,12 @@ $consultaHabilidadesSocioafectivas3 = "SELECT
 if($resultadoHabilidadesSocioafectivas3 = $mysqli->query($consultaHabilidadesSocioafectivas3))
 {
     while ($filaHabilidadesSocioafectivas3 = $resultadoHabilidadesSocioafectivas3->fetch_row()) {
-        echo "
-                                      <tr>
-                                        <td>$filaHabilidadesSocioafectivas3[0]</td>
-                                        <td id='resultadosHabilidadesSocioafectivas3'>$filaHabilidadesSocioafectivas3[1]</td>
-                                        <td>$filaHabilidadesSocioafectivas3[2]</td>
-                                        <td>$filaHabilidadesSocioafectivas3[3]</td>
-                                      </tr>";
+        echo "<tr>
+            <td>$filaHabilidadesSocioafectivas3[0]</td>
+            <td id='resultadosHabilidadesSocioafectivas3'>$filaHabilidadesSocioafectivas3[1]</td>
+            <td>$filaHabilidadesSocioafectivas3[2]</td>
+            <td>$filaHabilidadesSocioafectivas3[3]</td>
+          </tr>";
     }
 }
 else{
@@ -1132,11 +1211,11 @@ if($resultadoHabilidadesSocioafectivas4 = $mysqli->query($consultaHabilidadesSoc
 {
     while ($filaHabilidadesSocioafectivas4 = $resultadoHabilidadesSocioafectivas4->fetch_row()) {
         echo "<tr>
-                    <td>$filaHabilidadesSocioafectivas4[0]</td>
-                    <td id='resultadosHabilidadesSocioafectivas4'>$filaHabilidadesSocioafectivas4[1]</td>
-                    <td>$filaHabilidadesSocioafectivas4[2]</td>
-                    <td>$filaHabilidadesSocioafectivas4[3]</td>
-                  </tr>";
+            <td>$filaHabilidadesSocioafectivas4[0]</td>
+            <td id='resultadosHabilidadesSocioafectivas4'>$filaHabilidadesSocioafectivas4[1]</td>
+            <td>$filaHabilidadesSocioafectivas4[2]</td>
+            <td>$filaHabilidadesSocioafectivas4[3]</td>
+          </tr>";
     }
     echo "</table>";
 }
@@ -1150,10 +1229,30 @@ else{
     //Se obtienen los datos de lo impreso por el php, se sacan directamente del html
     //Aca no se totalmente como funcionan los colores en las barras, pero en una de todos mis intentos salio, y lo deje asi :(
     //En este comentario explico la nomenclatura de esta parte del js,   valoracion + (El numero de la valoracion que son 0,1,2,3) + Habilidad + (El numero de habilidad, basicas matematicas es la habilidad 1, basicas lectoescritura es la 2, etc)
-    var valoracion0Habilidad4 = document.getElementById('resultadosHabilidadesSocioafectivas1').innerText;
-    var valoracion1Habilidad4 = document.getElementById('resultadosHabilidadesSocioafectivas2').innerText;
-    var valoracion2Habilidad4 = document.getElementById('resultadosHabilidadesSocioafectivas3').innerText;
-    var valoracion3Habilidad4 = document.getElementById('resultadosHabilidadesSocioafectivas4').innerText;
+    try{
+        var valoracion0Habilidad4 = document.getElementById('resultadosHabilidadesSocioafectivas1').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        var valoracion1Habilidad4 = document.getElementById('resultadosHabilidadesSocioafectivas2').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        var valoracion2Habilidad4 = document.getElementById('resultadosHabilidadesSocioafectivas3').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        var valoracion3Habilidad4 = document.getElementById('resultadosHabilidadesSocioafectivas4').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
 
     anychart.onDocumentReady(function() {
         // create data set on our data
@@ -1277,10 +1376,10 @@ if($resultadoHabilidadesComunicativas1 = $mysqli->query($consultaHabilidadesComu
 {
     echo "<table class=\"egt\">
               <tr>
-                <th>Valoracion</th>
-                <th>Numero total</th>
-                <th>Habilidad</th>
-                <th>Nombre Alumno</th>
+                <th style='width: 100px;'>Valoracion</th>
+                <th style='width: 150px;'>Numero total</th>
+                <th style='width: 200px;'>Habilidad</th>
+                <th style='width: 200px;'>Nombre Alumno</th>
               </tr>";
     while ($filaHabilidadesComunicativas1 = $resultadoHabilidadesComunicativas1->fetch_row()) {
         echo "<tr>
@@ -1351,13 +1450,12 @@ $consultaHabilidadesComunicativas3 = "SELECT
 if($resultadoHabilidadesComunicativas3 = $mysqli->query($consultaHabilidadesComunicativas3))
 {
     while ($filaHabilidadesComunicativas3 = $resultadoHabilidadesComunicativas3->fetch_row()) {
-        echo "
-                                      <tr>
-                                        <td>$filaHabilidadesComunicativas3[0]</td>
-                                        <td id='resultadosHabilidadesComunicativas3'>$filaHabilidadesComunicativas3[1]</td>
-                                        <td>$filaHabilidadesComunicativas3[2]</td>
-                                        <td>$filaHabilidadesComunicativas3[3]</td>
-                                      </tr>";
+        echo "<tr>
+            <td>$filaHabilidadesComunicativas3[0]</td>
+            <td id='resultadosHabilidadesComunicativas3'>$filaHabilidadesComunicativas3[1]</td>
+            <td>$filaHabilidadesComunicativas3[2]</td>
+            <td>$filaHabilidadesComunicativas3[3]</td>
+          </tr>";
     }
 }
 else{
@@ -1387,11 +1485,11 @@ if($resultadoHabilidadesComunicativas4 = $mysqli->query($consultaHabilidadesComu
 {
     while ($filaHabilidadesComunicativas4 = $resultadoHabilidadesComunicativas4->fetch_row()) {
         echo "<tr>
-                    <td>$filaHabilidadesComunicativas4[0]</td>
-                    <td id='resultadosHabilidadesComunicativas4'>$filaHabilidadesComunicativas4[1]</td>
-                    <td>$filaHabilidadesComunicativas4[2]</td>
-                    <td>$filaHabilidadesComunicativas4[3]</td>
-                  </tr>";
+            <td>$filaHabilidadesComunicativas4[0]</td>
+            <td id='resultadosHabilidadesComunicativas4'>$filaHabilidadesComunicativas4[1]</td>
+            <td>$filaHabilidadesComunicativas4[2]</td>
+            <td>$filaHabilidadesComunicativas4[3]</td>
+          </tr>";
     }
     echo "</table>";
 }
@@ -1405,10 +1503,36 @@ else{
     //Se obtienen los datos de lo impreso por el php, se sacan directamente del html
     //Aca no se totalmente como funcionan los colores en las barras, pero en una de todos mis intentos salio, y lo deje asi :(
     //En este comentario explico la nomenclatura de esta parte del js,   valoracion + (El numero de la valoracion que son 0,1,2,3) + Habilidad + (El numero de habilidad, basicas matematicas es la habilidad 1, basicas lectoescritura es la 2, etc)
-    var valoracion0Habilidad5 = document.getElementById('resultadosHabilidadesComunicativas1').innerText;
-    var valoracion1Habilidad5 = document.getElementById('resultadosHabilidadesComunicativas2').innerText;
-    var valoracion2Habilidad5 = document.getElementById('resultadosHabilidadesComunicativas3').innerText;
-    var valoracion3Habilidad5 = document.getElementById('resultadosHabilidadesComunicativas4').innerText;
+
+    var valoracion0Habilidad5=0;
+    var valoracion1Habilidad5=0;
+    var valoracion2Habilidad5=0;
+    var valoracion3Habilidad5=0;
+    try{
+        valoracion0Habilidad5 = document.getElementById('resultadosHabilidadesComunicativas1').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion1Habilidad5 = document.getElementById('resultadosHabilidadesComunicativas2').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion2Habilidad5 = document.getElementById('resultadosHabilidadesComunicativas3').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion3Habilidad5 = document.getElementById('resultadosHabilidadesComunicativas4').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+
 
     anychart.onDocumentReady(function() {
         // create data set on our data
@@ -1532,10 +1656,10 @@ if($resultadoHabilidadesMotrices1 = $mysqli->query($consultaHabilidadesMotrices1
 {
     echo "<table class=\"egt\">
               <tr>
-                <th>Valoracion</th>
-                <th>Numero total</th>
-                <th>Habilidad</th>
-                <th>Nombre Alumno</th>
+                <th style='width: 100px;'>Valoracion</th>
+                <th style='width: 150px;'>Numero total</th>
+                <th style='width: 200px;'>Habilidad</th>
+                <th style='width: 200px;'>Nombre Alumno</th>
               </tr>";
     while ($filaHabilidadesMotrices1 = $resultadoHabilidadesMotrices1->fetch_row()) {
         echo "<tr>
@@ -1606,13 +1730,12 @@ $consultaHabilidadesMotrices3 = "SELECT
 if($resultadoHabilidadesMotrices3 = $mysqli->query($consultaHabilidadesMotrices3))
 {
     while ($filaHabilidadesMotrices3 = $resultadoHabilidadesMotrices3->fetch_row()) {
-        echo "
-                                      <tr>
-                                        <td>$filaHabilidadesMotrices3[0]</td>
-                                        <td id='resultadosHabilidadesMotrices3'>$filaHabilidadesMotrices3[1]</td>
-                                        <td>$filaHabilidadesMotrices3[2]</td>
-                                        <td>$filaHabilidadesMotrices3[3]</td>
-                                      </tr>";
+        echo "<tr>
+            <td>$filaHabilidadesMotrices3[0]</td>
+            <td id='resultadosHabilidadesMotrices3'>$filaHabilidadesMotrices3[1]</td>
+            <td>$filaHabilidadesMotrices3[2]</td>
+            <td>$filaHabilidadesMotrices3[3]</td>
+          </tr>";
     }
 }
 else{
@@ -1642,11 +1765,11 @@ if($resultadoHabilidadesMotrices4 = $mysqli->query($consultaHabilidadesMotrices4
 {
     while ($filaHabilidadesMotrices4 = $resultadoHabilidadesMotrices4->fetch_row()) {
         echo "<tr>
-                    <td>$filaHabilidadesMotrices4[0]</td>
-                    <td id='resultadosHabilidadesMotrices4'>$filaHabilidadesMotrices4[1]</td>
-                    <td>$filaHabilidadesMotrices4[2]</td>
-                    <td>$filaHabilidadesMotrices4[3]</td>
-                  </tr>";
+            <td>$filaHabilidadesMotrices4[0]</td>
+            <td id='resultadosHabilidadesMotrices4'>$filaHabilidadesMotrices4[1]</td>
+            <td>$filaHabilidadesMotrices4[2]</td>
+            <td>$filaHabilidadesMotrices4[3]</td>
+          </tr>";
     }
     echo "</table>";
 }
@@ -1660,10 +1783,35 @@ else{
     //Se obtienen los datos de lo impreso por el php, se sacan directamente del html
     //Aca no se totalmente como funcionan los colores en las barras, pero en una de todos mis intentos salio, y lo deje asi :(
     //En este comentario explico la nomenclatura de esta parte del js,   valoracion + (El numero de la valoracion que son 0,1,2,3) + Habilidad + (El numero de habilidad, basicas matematicas es la habilidad 1, basicas lectoescritura es la 2, etc)
-    var valoracion0Habilidad6 = document.getElementById('resultadosHabilidadesMotrices1').innerText;
-    var valoracion1Habilidad6 = document.getElementById('resultadosHabilidadesMotrices2').innerText;
-    var valoracion2Habilidad6 = document.getElementById('resultadosHabilidadesMotrices3').innerText;
-    var valoracion3Habilidad6 = document.getElementById('resultadosHabilidadesMotrices4').innerText;
+
+    var valoracion0Habilidad6=0;
+    var valoracion1Habilidad6=0;
+    var valoracion2Habilidad6=0;
+    var valoracion3Habilidad6=0;
+    try{
+        valoracion0Habilidad6 = document.getElementById('resultadosHabilidadesMotrices1').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion1Habilidad6 = document.getElementById('resultadosHabilidadesMotrices2').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion2Habilidad6 = document.getElementById('resultadosHabilidadesMotrices3').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion3Habilidad6 = document.getElementById('resultadosHabilidadesMotrices4').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
 
     anychart.onDocumentReady(function() {
         // create data set on our data
@@ -1760,7 +1908,7 @@ else{
 
 <!------------------------------------------------------------------------ Inicio bloque de habilidades de autocuidado e independencia ----------------------------------------------------------------------------->
 <h2>
-    Habilidades AeI
+    Habilidades de Autocuidado e Independencia
 </h2>
 <?php
 include("conexion.php");
@@ -1785,12 +1933,12 @@ $consultaHabilidadesAeI1 = "SELECT
 
 if($resultadoHabilidadesAeI1 = $mysqli->query($consultaHabilidadesAeI1))
 {
-    echo "<table class=\"egt\">
+    echo "<table class=\"tabla\">
               <tr>
-                <th>Valoracion</th>
-                <th>Numero total</th>
-                <th>Habilidad</th>
-                <th>Nombre Alumno</th>
+                <th style='width: 100px;'>Valoracion</th>
+                <th style='width: 150px;'>Numero total</th>
+                <th style='width: 200px;'>Habilidad</th>
+                <th style='width: 200px;'>Nombre Alumno</th>
               </tr>";
     while ($filaHabilidadesAeI1 = $resultadoHabilidadesAeI1->fetch_row()) {
         echo "<tr>
@@ -1861,13 +2009,12 @@ $consultaHabilidadesAeI3 = "SELECT
 if($resultadoHabilidadesAeI3 = $mysqli->query($consultaHabilidadesAeI3))
 {
     while ($filaHabilidadesAeI3 = $resultadoHabilidadesAeI3->fetch_row()) {
-        echo "
-                                      <tr>
-                                        <td>$filaHabilidadesAeI3[0]</td>
-                                        <td id='resultadosHabilidadesAeI3'>$filaHabilidadesAeI3[1]</td>
-                                        <td>$filaHabilidadesAeI3[2]</td>
-                                        <td>$filaHabilidadesAeI3[3]</td>
-                                      </tr>";
+        echo "<tr>
+            <td>$filaHabilidadesAeI3[0]</td>
+            <td id='resultadosHabilidadesAeI3'>$filaHabilidadesAeI3[1]</td>
+            <td>$filaHabilidadesAeI3[2]</td>
+            <td>$filaHabilidadesAeI3[3]</td>
+          </tr>";
     }
 }
 else{
@@ -1897,11 +2044,11 @@ if($resultadoHabilidadesAeI4 = $mysqli->query($consultaHabilidadesAeI4))
 {
     while ($filaHabilidadesAeI4 = $resultadoHabilidadesAeI4->fetch_row()) {
         echo "<tr>
-                    <td>$filaHabilidadesAeI4[0]</td>
-                    <td id='resultadosHabilidadesAeI4'>$filaHabilidadesAeI4[1]</td>
-                    <td>$filaHabilidadesAeI4[2]</td>
-                    <td>$filaHabilidadesAeI4[3]</td>
-                  </tr>";
+            <td>$filaHabilidadesAeI4[0]</td>
+            <td id='resultadosHabilidadesAeI4'>$filaHabilidadesAeI4[1]</td>
+            <td>$filaHabilidadesAeI4[2]</td>
+            <td>$filaHabilidadesAeI4[3]</td>
+          </tr>";
     }
     echo "</table>";
 }
@@ -1915,10 +2062,35 @@ else{
     //Se obtienen los datos de lo impreso por el php, se sacan directamente del html
     //Aca no se totalmente como funcionan los colores en las barras, pero en una de todos mis intentos salio, y lo deje asi :(
     //En este comentario explico la nomenclatura de esta parte del js,   valoracion + (El numero de la valoracion que son 0,1,2,3) + Habilidad + (El numero de habilidad, basicas matematicas es la habilidad 1, basicas lectoescritura es la 2, etc)
-    var valoracion0Habilidad7 = document.getElementById('resultadosHabilidadesAeI1').innerText;
-    var valoracion1Habilidad7 = document.getElementById('resultadosHabilidadesAeI2').innerText;
-    var valoracion2Habilidad7 = document.getElementById('resultadosHabilidadesAeI3').innerText;
-    var valoracion3Habilidad7 = document.getElementById('resultadosHabilidadesAeI4').innerText;
+
+    var valoracion0Habilidad7=0;
+    var valoracion1Habilidad7=0;
+    var valoracion2Habilidad7=0;
+    var valoracion3Habilidad7=0;
+    try{
+        valoracion0Habilidad7 = document.getElementById('resultadosHabilidadesAeI1').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion1Habilidad7 = document.getElementById('resultadosHabilidadesAeI2').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion2Habilidad7 = document.getElementById('resultadosHabilidadesAeI3').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    try{
+        valoracion3Habilidad7 = document.getElementById('resultadosHabilidadesAeI4').innerText;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
 
     anychart.onDocumentReady(function() {
         // create data set on our data
@@ -2000,11 +2172,11 @@ else{
 
 <!-- Contenedor habilidades cognitivas barchart -->
 
-<div id="gr8" style="width: 100%;height: 50vh; margin:auto;">
+<div id="gr8" style="width: 100%;height: 50vh; margin:auto;" class="mb-4">
 </div>
 
 <!--  ---------------------------------------------------------------------- Fin bloque habilidades AeI ---------------------------------------------------------------------------->
-
+</section>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

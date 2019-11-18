@@ -29,10 +29,10 @@ else{
                         Aprendizajes
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="atencion.php">Atencion</a>
+                        <a class="dropdown-item" href="memoria.php">Memoria</a>
                         <a class="dropdown-item" href="motivacion.php">Motivacion</a>
                         <a class="dropdown-item" href="sensoper.php">Senso-Percepcion</a>
-                        <a class="dropdown-item" href="atenria.php">Memoria</a>
-                        <a class="dropdown-item" href="atencion.php">Atencion</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -40,13 +40,13 @@ else{
                         Habilidades
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="hCognitivas.php">Cognitivas</a>
-                        <a class="dropdown-item" href="hComunicativas.php">Comunicativas</a>
-                        <a class="dropdown-item" href="hSocioafectivas.php">Socioafectivas</a>
-                        <a class="dropdown-item" href="hAutocuidadoIndependencia.php">Autocuidado e Independencia</a>
-                        <a class="dropdown-item" href="hMotrices.php">Motrices</a>
-                        <a class="dropdown-item" href="hLectoescritura.php">Basicas de lectoescritura</a>
                         <a class="dropdown-item" href="hMatematicas.php">Basicas de matematicas</a>
+                        <a class="dropdown-item" href="hLectoescritura.php">Basicas de lectoescritura</a>
+                        <a class="dropdown-item" href="hCognitivas.php">Cognitivas</a>
+                        <a class="dropdown-item" href="hSocioafectivas.php">Socioafectivas</a>
+                        <a class="dropdown-item" href="hComunicativas.php">Comunicativas</a>
+                        <a class="dropdown-item" href="hMotrices.php">Motrices</a>
+                        <a class="dropdown-item" href="hAutocuidadoIndependencia.php">Autocuidado e Independencia</a>
                     </div>
                 </li>
             </ul>
@@ -56,7 +56,7 @@ else{
     <section class="row border-bottom mt-4 mb-2">
         <ul class="menuInterno mb-4 pb-2 pt-2 d-flex">
             <li><i class="far fa-save mr-2"></i><input type="submit" value="Guardar" style="border:none;"></li>
-            <li><i class="far fa-sticky-note mr-2"></i>Limpiar</li>
+            <li onclick="limpiarDatos()"><i class="far fa-sticky-note mr-2"></i>Limpiar</li>
             <li><a href="../Inicio.php"><i class="fas fa-backward mr-2"></i>Regresar al inicio</a></li>
         </ul>
     </section>
@@ -439,6 +439,13 @@ else{
     </section>
 </section>
 <script>
+    function limpiarDatos() {
+        var i = 1;
+        for(i=1;i<=12;i++){
+            document.getElementById('atenItem'+i).selectedIndex='0';
+        }
+    }
+
     function calcular(){
 
         document.getElementById('sumNoAlter').innerHTML = 0;
@@ -520,6 +527,7 @@ else{
 
     }
 </script>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
