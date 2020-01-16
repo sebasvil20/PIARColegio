@@ -8,7 +8,7 @@ Frameworks Bootstrap
 
 
 
-Now I'm gonna explain somethings:
+Now I'm gonna explain some things:
 
 -In the folder "mainApp" u gonna find:
 
